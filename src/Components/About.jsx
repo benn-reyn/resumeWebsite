@@ -31,12 +31,15 @@ export const About = () => {
                                 Get in Touch
                             </a>
                             <a 
-                                href="/resume.pdf" 
+                                href="/Resume-1.pdf" 
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-6 py-3 rounded-full border-primary text-primary border-2 hover:bg-primary hover:text-background transition-colors duration-300 text-center"
+                                className="px-6 py-3 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-background transition-all duration-300 text-center flex items-center justify-center gap-2 group"
                             >
                                 View My Resume
+                                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+    </svg>
                             </a>
                         </div>
                     </div>
