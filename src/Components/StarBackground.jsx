@@ -9,7 +9,6 @@ export const StarBackground = () => {
     const [constellations, setConstellations] = useState([]);
     const [isDarkMode, setIsDarkMode] = useState(false);
 
-    // Detect theme changes
     useEffect(() => {
         const checkTheme = () => {
             const isDark = document.documentElement.classList.contains('dark');
@@ -28,7 +27,7 @@ export const StarBackground = () => {
     }, []);
 
     const generateStars = useCallback(() => {
-        const density = isDarkMode ? 3000 : 6000; // More stars in dark mode
+        const density = isDarkMode ? 3000 : 6000;
         const numberOfStars = Math.floor((window.innerWidth * window.innerHeight) / density);
         const newStars = [];
 
@@ -38,23 +37,21 @@ export const StarBackground = () => {
                 Math.random() * 0.8 + 0.2 : 
                 Math.random() * 0.3 + 0.1;
 
-            // Different colors for different star types
             const starType = Math.random();
             let color = 'white';
-            if (starType > 0.95) color = `hsl(${Math.random() * 60 + 200}, 100%, 80%)`; // Blue
-            else if (starType > 0.90) color = `hsl(${Math.random() * 30 + 30}, 100%, 75%)`; // Orange
-            else if (starType > 0.85) color = `hsl(${Math.random() * 20 + 350}, 100%, 85%)`; // Red
+            if (starType > 0.95) color = `hsl(${Math.random() * 60 + 200}, 100%, 80%)`;
+            else if (starType > 0.90) color = `hsl(${Math.random() * 30 + 30}, 100%, 75%)`;
+            else if (starType > 0.85) color = `hsl(${Math.random() * 20 + 350}, 100%, 85%)`;
 
             newStars.push({
                 id: i,
-                size: size,
+                size,
                 x: Math.random() * 100,
                 y: Math.random() * 100,
                 opacity: brightness,
                 animationDuration: Math.random() * 6 + 3,
                 animationDelay: Math.random() * 5,
-                twinkleSpeed: Math.random() * 3 + 1,
-                color: color,
+                color,
                 isBright: Math.random() > 0.7
             });
         }
@@ -62,7 +59,7 @@ export const StarBackground = () => {
     }, [isDarkMode]);
 
     const generateMeteors = useCallback(() => {
-        const numberOfMeteors = isDarkMode ? 6 : 3; // Fewer meteors in light mode
+        const numberOfMeteors = isDarkMode ? 6 : 3;
         const newMeteors = [];
 
         for (let i = 0; i < numberOfMeteors; i++) {
@@ -81,15 +78,10 @@ export const StarBackground = () => {
     }, [isDarkMode]);
 
     const generateClouds = useCallback(() => {
-        if (isDarkMode) {
-            setClouds([]);
-            return;
-        }
+        if (isDarkMode) { setClouds([]); return; }
 
-        const numberOfClouds = 4;
         const newClouds = [];
-
-        for (let i = 0; i < numberOfClouds; i++) {
+        for (let i = 0; i < 4; i++) {
             newClouds.push({
                 id: i,
                 x: Math.random() * 100,
@@ -104,15 +96,10 @@ export const StarBackground = () => {
     }, [isDarkMode]);
 
     const generateSunbeams = useCallback(() => {
-        if (isDarkMode) {
-            setSunbeams([]);
-            return;
-        }
+        if (isDarkMode) { setSunbeams([]); return; }
 
-        const numberOfBeams = 3;
         const newBeams = [];
-
-        for (let i = 0; i < numberOfBeams; i++) {
+        for (let i = 0; i < 3; i++) {
             newBeams.push({
                 id: i,
                 x: Math.random() * 30 + 10,
@@ -126,30 +113,16 @@ export const StarBackground = () => {
     }, [isDarkMode]);
 
     const generateConstellations = useCallback(() => {
-        if (!isDarkMode) {
-            setConstellations([]);
-            return;
-        }
+        if (!isDarkMode) { setConstellations([]); return; }
 
-        const numberOfConstellations = 4;
         const newConstellations = [];
-
-        for (let i = 0; i < numberOfConstellations; i++) {
+        for (let i = 0; i < 4; i++) {
             const points = [];
             const pointCount = Math.floor(Math.random() * 4) + 3;
-            
             for (let j = 0; j < pointCount; j++) {
-                points.push({
-                    x: 15 + Math.random() * 70,
-                    y: 15 + Math.random() * 70
-                });
+                points.push({ x: 15 + Math.random() * 70, y: 15 + Math.random() * 70 });
             }
-
-            newConstellations.push({
-                id: i,
-                points: points,
-                opacity: Math.random() * 0.15 + 0.05,
-            });
+            newConstellations.push({ id: i, points, opacity: Math.random() * 0.15 + 0.05 });
         }
         setConstellations(newConstellations);
     }, [isDarkMode]);
@@ -161,18 +134,16 @@ export const StarBackground = () => {
         generateSunbeams();
         generateConstellations();
 
-        const handleResize = () => {
-            generateStars();
-            generateMeteors();
-            generateClouds();
-            generateSunbeams();
-            generateConstellations();
-        };
-
         let resizeTimeout;
         const throttledResize = () => {
             clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(handleResize, 250);
+            resizeTimeout = setTimeout(() => {
+                generateStars();
+                generateMeteors();
+                generateClouds();
+                generateSunbeams();
+                generateConstellations();
+            }, 250);
         };
 
         window.addEventListener("resize", throttledResize);
@@ -182,7 +153,6 @@ export const StarBackground = () => {
         };
     }, [generateStars, generateMeteors, generateClouds, generateSunbeams, generateConstellations]);
 
-    // Regenerate when theme changes
     useEffect(() => {
         generateStars();
         generateClouds();
@@ -192,7 +162,6 @@ export const StarBackground = () => {
 
     return (
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-            {/* Dynamic Gradient Overlay */}
             <div className={cn(
                 "absolute inset-0 transition-all duration-1000",
                 isDarkMode 
@@ -200,30 +169,19 @@ export const StarBackground = () => {
                     : "bg-gradient-to-br from-sky-200/30 via-amber-100/20 to-orange-50/10"
             )} />
 
-            {/* Sun/Moon Glow */}
             <div className={cn(
-                "absolute w-64 h-64 rounded-full blur-3xl transition-all duration-1000",
-                "top-1/4 -left-32",
-                isDarkMode 
-                    ? "bg-blue-400/5" 
-                    : "bg-amber-300/20"
+                "absolute w-64 h-64 rounded-full blur-3xl transition-all duration-1000 top-1/4 -left-32",
+                isDarkMode ? "bg-blue-400/5" : "bg-amber-300/20"
             )} />
             <div className={cn(
-                "absolute w-96 h-96 rounded-full blur-3xl transition-all duration-1000",
-                "bottom-1/4 -right-48",
-                isDarkMode 
-                    ? "bg-purple-500/5" 
-                    : "bg-orange-400/15"
+                "absolute w-96 h-96 rounded-full blur-3xl transition-all duration-1000 bottom-1/4 -right-48",
+                isDarkMode ? "bg-purple-500/5" : "bg-orange-400/15"
             )} />
 
-            {/* Stars */}
             {stars.map((star) => (
                 <div 
                     key={star.id} 
-                    className={cn(
-                        "absolute rounded-full animate-pulse",
-                        star.isBright && "animate-twinkle"
-                    )}
+                    className={cn("absolute rounded-full animate-pulse", star.isBright && "animate-twinkle")}
                     style={{
                         width: `${star.size}px`,
                         height: `${star.size}px`,
@@ -239,26 +197,17 @@ export const StarBackground = () => {
                 />
             ))}
 
-            {/* Constellations (Dark Mode Only) */}
             {constellations.map((constellation) => (
-                <svg
-                    key={constellation.id}
-                    className="absolute inset-0 w-full h-full"
-                    style={{ opacity: constellation.opacity }}
-                >
+                <svg key={constellation.id} className="absolute inset-0 w-full h-full" style={{ opacity: constellation.opacity }}>
                     {constellation.points.map((point, index, array) => {
                         if (index === array.length - 1) return null;
                         const nextPoint = array[index + 1];
                         return (
                             <line
                                 key={index}
-                                x1={`${point.x}%`}
-                                y1={`${point.y}%`}
-                                x2={`${nextPoint.x}%`}
-                                y2={`${nextPoint.y}%`}
-                                stroke="currentColor"
-                                strokeWidth="0.3"
-                                strokeOpacity="0.4"
+                                x1={`${point.x}%`} y1={`${point.y}%`}
+                                x2={`${nextPoint.x}%`} y2={`${nextPoint.y}%`}
+                                stroke="currentColor" strokeWidth="0.3" strokeOpacity="0.4"
                                 className="text-blue-300"
                             />
                         );
@@ -266,16 +215,11 @@ export const StarBackground = () => {
                 </svg>
             ))}
 
-            {/* Clouds (Light Mode Only) */}
             {clouds.map((cloud) => (
-                <div
-                    key={cloud.id}
-                    className="absolute opacity-20 animate-float"
+                <div key={cloud.id} className="absolute animate-float"
                     style={{
-                        left: `${cloud.x}%`,
-                        top: `${cloud.y}%`,
-                        width: `${cloud.size}px`,
-                        height: `${cloud.size * 0.6}px`,
+                        left: `${cloud.x}%`, top: `${cloud.y}%`,
+                        width: `${cloud.size}px`, height: `${cloud.size * 0.6}px`,
                         opacity: cloud.opacity,
                         animationDuration: `${cloud.speed * 100}s`,
                         animationDirection: cloud.direction > 0 ? 'normal' : 'reverse',
@@ -285,16 +229,11 @@ export const StarBackground = () => {
                 />
             ))}
 
-            {/* Sunbeams (Light Mode Only) */}
             {sunbeams.map((beam) => (
-                <div
-                    key={beam.id}
-                    className="absolute animate-pulse-slow"
+                <div key={beam.id} className="absolute animate-pulse-slow"
                     style={{
-                        left: `${beam.x}%`,
-                        top: `${beam.y}%`,
-                        width: `${beam.width}%`,
-                        height: '1px',
+                        left: `${beam.x}%`, top: `${beam.y}%`,
+                        width: `${beam.width}%`, height: '1px',
                         opacity: beam.opacity,
                         transform: `rotate(${beam.angle}deg)`,
                         background: 'linear-gradient(90deg, transparent, #ffd700, transparent)',
@@ -303,16 +242,11 @@ export const StarBackground = () => {
                 />
             ))}
 
-            {/* Meteors */}
             {meteors.map((meteor) => (
-                <div 
-                    key={meteor.id} 
-                    className="absolute animate-meteor"
+                <div key={meteor.id} className="absolute animate-meteor"
                     style={{
-                        left: `${meteor.x}%`,
-                        top: `${meteor.y}%`,
-                        width: `${meteor.length}px`,
-                        height: '1px',
+                        left: `${meteor.x}%`, top: `${meteor.y}%`,
+                        width: `${meteor.length}px`, height: '1px',
                         animationDelay: `${meteor.delay}s`,
                         animationDuration: `${meteor.speed}s`,
                         opacity: meteor.opacity,
@@ -325,17 +259,11 @@ export const StarBackground = () => {
                 />
             ))}
 
-            {/* Animated CSS */}
-            <style jsx>{`
+            {/* NOTE: <style jsx> is Next.js-only — this uses plain <style> which works in Vite */}
+            <style>{`
                 @keyframes meteor {
-                    0% {
-                        transform: translateX(0) translateY(0) rotate(var(--angle, 15deg));
-                        opacity: 1;
-                    }
-                    100% {
-                        transform: translateX(-100vw) translateY(100vh) rotate(var(--angle, 15deg));
-                        opacity: 0;
-                    }
+                    0% { transform: translateX(0) translateY(0) rotate(var(--angle, 15deg)); opacity: 1; }
+                    100% { transform: translateX(-100vw) translateY(100vh) rotate(var(--angle, 15deg)); opacity: 0; }
                 }
                 @keyframes twinkle {
                     0%, 100% { opacity: 0.3; transform: scale(1); }
@@ -349,18 +277,10 @@ export const StarBackground = () => {
                     0%, 100% { opacity: 0.1; }
                     50% { opacity: 0.3; }
                 }
-                .animate-meteor {
-                    animation: meteor linear infinite;
-                }
-                .animate-twinkle {
-                    animation: twinkle ease-in-out infinite;
-                }
-                .animate-float {
-                    animation: float linear infinite;
-                }
-                .animate-pulse-slow {
-                    animation: pulse-slow 4s ease-in-out infinite;
-                }
+                .animate-meteor { animation: meteor linear infinite; }
+                .animate-twinkle { animation: twinkle ease-in-out infinite; }
+                .animate-float { animation: float linear infinite; }
+                .animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
             `}</style>
         </div>
     );

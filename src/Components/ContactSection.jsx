@@ -105,7 +105,7 @@ export const ContactSection = () => {
                             <h4 className="font-medium mb-4">Connect With Me</h4>
                             <div className="flex space-x-4">
                                 <a 
-                                    href="https://linkedin.com/in/your-profile" 
+                                    href="https://www.linkedin.com/in/bennie-reynolds-b6b5aa304" 
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                     className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"

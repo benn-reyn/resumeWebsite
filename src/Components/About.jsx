@@ -1,15 +1,52 @@
 import { Code, User, Briefcase } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
+const cards = [
+    {
+        icon: Code,
+        title: "FullStack Development",
+        body: "React, CSS, Tailwind, Node.js, Python, R, TypeScript, PostgreSQL, REST/RESTful APIs, Git, C++, C"
+    },
+    {
+        icon: User,
+        title: "Machine Learning & Data Science",
+        body: "Python, Pandas, Scikit-learn, TensorFlow, Data Visualization, Statistical Analysis, Predictive Modeling"
+    },
+    {
+        icon: Briefcase,
+        title: "Economic Analysis",
+        body: "Economic Modeling, Data Analysis, Market Research, Statistical Methods, Financial Analysis, Quantitative Research"
+    }
+];
 
 export const About = () => {
+    const [visible, setVisible] = useState(false);
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+            { threshold: 0.1 }
+        );
+        if (sectionRef.current) observer.observe(sectionRef.current);
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <section id="about" className="py-24 px-4 relative">
+        <section id="about" className="py-24 px-4 relative" ref={sectionRef}>
             <div className="container mx-auto max-w-5xl">
                 <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
                     About <span className="text-primary">Me</span>
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6">
+                    <div
+                        className="space-y-6 transition-all duration-700"
+                        style={{
+                            opacity: visible ? 1 : 0,
+                            transform: visible ? 'translateX(0)' : 'translateX(-30px)'
+                        }}
+                    >
                         <h3 className="text-2xl font-semibold">Fullstack Developer & Economic Analyst</h3>
 
                         <p className="text-muted-foreground">
@@ -38,56 +75,34 @@ export const About = () => {
                             >
                                 View My Resume
                                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-    </svg>
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
                             </a>
                         </div>
                     </div>
                     
                     <div className="grid grid-cols-1 gap-6">
-                        <div className="gradient-border p-6 card-hover">
-                            <div className="flex items-start gap-4">
-                                <div className="p-3 rounded-full bg-primary/10 flex-shrink-0">
-                                    <Code className="h-6 w-6 text-primary" />
-                                </div>
-                                <div className="text-left">
-                                    <h4 className="font-semibold text-lg mb-2">FullStack Development</h4>
-                                    <p className="text-muted-foreground">
-                                        React, CSS, Tailwind, Node.js, Python, R, TypeScript, PostgreSQL, REST/RESTful APIs, Git, C++, C
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div className="gradient-border p-6 card-hover">
-                            <div className="flex items-start gap-4">
-                                <div className="p-3 rounded-full bg-primary/10 flex-shrink-0">
-                                    <User className="h-6 w-6 text-primary" />
-                                </div>
-                                <div className="text-left">
-                                    <h4 className="font-semibold text-lg mb-2">Machine Learning & Data Science</h4>
-                                    <p className="text-muted-foreground">
-                                        Python, Pandas, Scikit-learn, TensorFlow, Data Visualization, 
-                                        Statistical Analysis, Predictive Modeling
-                                    </p>
+                        {cards.map(({ icon: Icon, title, body }, i) => (
+                            <div
+                                key={title}
+                                className="gradient-border p-6 card-hover transition-all duration-700"
+                                style={{
+                                    opacity: visible ? 1 : 0,
+                                    transform: visible ? 'translateX(0)' : 'translateX(30px)',
+                                    transitionDelay: `${i * 150}ms`
+                                }}
+                            >
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 rounded-full bg-primary/10 flex-shrink-0">
+                                        <Icon className="h-6 w-6 text-primary" />
+                                    </div>
+                                    <div className="text-left">
+                                        <h4 className="font-semibold text-lg mb-2">{title}</h4>
+                                        <p className="text-muted-foreground">{body}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div className="gradient-border p-6 card-hover">
-                            <div className="flex items-start gap-4">
-                                <div className="p-3 rounded-full bg-primary/10 flex-shrink-0">
-                                    <Briefcase className="h-6 w-6 text-primary" />
-                                </div>
-                                <div className="text-left">
-                                    <h4 className="font-semibold text-lg mb-2">Economic Analysis</h4>
-                                    <p className="text-muted-foreground">
-                                        Economic Modeling, Data Analysis, Market Research, Statistical Methods, 
-                                        Financial Analysis, Quantitative Research
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
