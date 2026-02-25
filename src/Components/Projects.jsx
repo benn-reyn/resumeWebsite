@@ -8,8 +8,8 @@ const projects = [
         description: "A novel approach to excess return decomposition, in an underexplored area of financial econometrics.",
         image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80",
         tags: ["Python", "SQL", "Jupyter Notebook", "WRDS"],
-        demoUrl: "#",
-        githubUrl: "https://github.com/benn-reyn/Interactive_Portfolio"
+        demoUrl: "https://github.com/benn-reyn/IPCA-Microcaps/blob/main/EDA.ipynb",
+        githubUrl: "https://github.com/benn-reyn/IPCA-Microcaps"
     },
     {
         id: 2,
@@ -23,7 +23,7 @@ const projects = [
     {
         id: 3,
         title: "Collection of Econometric Analyses with Interactive Visualizations",
-        description: "Will be made available in next deployment. Until then, most are available on github",
+        description: "Will be made available in next deployment. Until then, some projectsare available on github. Many were written in R, and need to be refactored to python.",
         image: "public/economicpic.jpg",
         tags: ["Python", "Data Analysis", "Economics", "Visualization", "Time Series"],
         demoUrl: "#",
@@ -35,13 +35,13 @@ const projects = [
         description: "A notebook for backtesting trading strategies using historical market data, with performance metrics and visualizations.",
         image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80",
         tags: ["Python", "Pandas", "NumPy", "Matplotlib"],
-        demoUrl: "#",
-        githubUrl: "https://github.com/benn-reyn"
+        demoUrl: "https://github.com/benn-reyn/strategyTesting/blob/main/strategyTesting.ipynb",
+        githubUrl: "https://github.com/benn-reyn/strategyTesting"
     },
     {
         id: 5,
         title: "FinBERT - Financial Sentiment Analysis",
-        description: "Using FinBERT, a pre-trained language model for financial sentiment analysis, to analyze social media posts for market sentiment insights.",
+        description: "Will be made available in next deployment. Using FinBERT, a pre-trained language model for financial sentiment analysis, to analyze social media posts for market sentiment insights. Needs to be refactored from R & Rshiny.",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80",
         tags: ["Python", "NLP", "Machine Learning", "Financial Analysis"],
         demoUrl: "#",
@@ -50,7 +50,7 @@ const projects = [
     {
         id: 6,
         title: "NBA Stat-Correction Model",
-        description: "A machine learning model to correct inconsistencies in NBA player statistics, and exploitable edge in sports-betting markets. (In progress)",
+        description: "In progress... A machine learning model designed to identify and correct statistical anomalies in NBA player performance data, improving the accuracy of sports analytics. Refactoring from R to Python.",
         image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80",
         tags: ["Python", "Machine Learning", "Sports Analytics"],
         demoUrl: "#",
