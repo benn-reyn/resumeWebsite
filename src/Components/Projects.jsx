@@ -15,7 +15,7 @@ const projects = [
         id: 2,
         title: "Hybrid Regime Prediction Model",
         description: "A hyperparameter-tuned machine learning model used to classify market regime, leveraging both stochastic and fractal theory for improved prediction. Uses both XGBoost and RF.",
-        image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80",
+        image: "public/hybridPhoto.png",
         tags: ["Python", "Machine Learning", "Pandas", "Scikit-learn"],
         demoUrl: "https://benn-reyn.github.io/Hybrid_Regime_Prediction_Engine/",
         githubUrl: "https://github.com/benn-reyn/Hybrid_Regime_Prediction_Engine"
@@ -23,8 +23,8 @@ const projects = [
     {
         id: 3,
         title: "Collection of Econometric Analyses with Interactive Visualizations",
-        description: "A series of different econometric analyses, from courses and independent research, with interactive visualizations and detailed explanations.",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80",
+        description: "Will be made available in next deployment. Until then, most are available on github",
+        image: "public/economicpic.jpg",
         tags: ["Python", "Data Analysis", "Economics", "Visualization", "Time Series"],
         demoUrl: "#",
         githubUrl: "https://github.com/benn-reyn"
