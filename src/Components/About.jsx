@@ -67,7 +67,7 @@ export const About = () => {
                                 Get in Touch
                             </a>
                             <a 
-                                href="/Resume-1.pdf" 
+                                href="https://drive.google.com/file/d/1PIPfm8SLseNPUo0JRlewgPI6Sggjr8tz/view?usp=sharing" 
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-6 py-3 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-background transition-all duration-300 text-center flex items-center justify-center gap-2 group"

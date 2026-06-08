@@ -17,7 +17,7 @@ const projects = [
         description: "A novel approach to excess return decomposition, in an underexplored area of financial econometrics.",
         image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80",
         tags: ["Python", "SQL", "Jupyter Notebook", "WRDS"],
-        demoUrl: "/A Remedy to Noise.pdf",
+        demoUrl: "https://drive.google.com/file/d/18bWgy_gyv9MrtZPN5PwgeuNfJUzwoPJF/view?usp=sharing",
         githubUrl: "https://github.com/benn-reyn/IPCA-Microcaps"
     },
     {
