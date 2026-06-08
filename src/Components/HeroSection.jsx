@@ -16,8 +16,8 @@ export const HeroSection = () => {
                     </h1>
 
                     <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                        I am an economist and fullstack developer with a passion for creation and innovation.
-                        I specialize in Data Science, Quantitative Economics, and Game Theoretical Analysis.
+                        I am an economist and developer with a passion for creation and innovation.
+                        I specialize in Data Science, Time Series Modeling, and Game Theoretical Analysis.
                     </p>
 
                     <div className="flex flex-wrap gap-4 justify-center opacity-0 animate-fade-in-delay-3">

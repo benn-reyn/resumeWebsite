@@ -19,7 +19,7 @@ const skills = [
         technologies: ["Convex Optimization", "KKT", "Gradient Methods", "Lagrangian methods"]
     },
     { 
-        name: "Backend Development", level: 82, icon: Server, category: "back-end",
+        name: "Backend Development", level: 88, icon: Server, category: "back-end",
         description: "API design, database architecture, and server management",
         technologies: ["Express.js", "PostgreSQL", "REST APIs", "Authentication"]
     },

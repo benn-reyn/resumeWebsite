@@ -5,17 +5,17 @@ const cards = [
     {
         icon: Code,
         title: "FullStack Development",
-        body: "React, CSS, Tailwind, Node.js, Python, R, TypeScript, PostgreSQL, REST/RESTful APIs, Git, C++, C"
+        body: "Python, C++, SQL, R, Node.js, CSS, Tailwind, TypeScript, React, Express, MongoDB, RESTful APIs, Git, Docker, Cloud Deployment"
     },
     {
         icon: User,
         title: "Machine Learning & Data Science",
-        body: "Python, Pandas, Scikit-learn, TensorFlow, Data Visualization, Statistical Analysis, Predictive Modeling"
+        body: "Keras, Pandas, Scikit-learn, TensorFlow, PyTorch, Data Engineering, Statistical Analysis, Predictive Modeling"
     },
     {
         icon: Briefcase,
-        title: "Economic Analysis",
-        body: "Economic Modeling, Data Analysis, Market Research, Statistical Methods, Financial Analysis, Quantitative Research"
+        title: "Time Series Modeling",
+        body: "Econometrics, Game Theory, Time Series Analysis, Accounting, Quantitative Finance, Policy Analysis"
     }
 ];
 
@@ -47,20 +47,19 @@ export const About = () => {
                             transform: visible ? 'translateX(0)' : 'translateX(-30px)'
                         }}
                     >
-                        <h3 className="text-2xl font-semibold">Fullstack Developer & Economic Analyst</h3>
+                        <h3 className="text-2xl font-semibold">Versatile Analyst and Systems Thinker</h3>
 
                         <p className="text-muted-foreground">
-                            I'm a passionate Fullstack Developer with a strong background in economic analysis, 
-                            blending technical expertise with analytical thinking to create data-driven solutions. 
-                            With experience in both software development and economic research, I bring a unique 
-                            perspective to solving complex problems.
+                            I'm a fullstack developer with a strong background in econometric analysis and time-series modeling,, 
+                            blending technical expertise with systems thinking to solve complex problems efficiently. 
+                            With experience in both software development and economic research, I bring a versatile approach to problem-solving.
                         </p>
 
                         <p className="text-muted-foreground">
-                            My journey started in economics, where I developed strong analytical skills, and 
-                            evolved into fullstack development, allowing me to build practical solutions that 
-                            bridge the gap between data analysis and user experience. I thrive on creating 
-                            efficient, scalable applications that make a real impact.
+                            My journey started in Data Science, where I developed strong technical and analytical skills, and 
+                            in the last two years expanded into Data Engineering (as meaningful DS neccessitates ETL and pipeline proficiency), 
+                            allowing me to build practical solutions as well as performant automated systems that bridge the gap between data analysis 
+                            and user experience. I thrive on creating efficient, scalable applications that make a real impact.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-4">

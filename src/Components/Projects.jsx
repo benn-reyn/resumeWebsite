@@ -4,58 +4,49 @@ import { cn } from "@/lib/utils";
 const projects = [
     {
         id: 1,
+        title: "Deep Learning applied to Multispectral Satellite Imagery for Forest Health Classification",
+        description: "A Convolutional Neural Network (CNN) designed to classify forest health using multispectral satellite imagery, being used to enhance conservation/community resilience efforts in and around the Pisgah National Forest.",
+        image: "/pisgah.jpg",
+        tags: ["Python", "Numpy", "Airflow", "GIS"],
+        demoUrl: "https://arcg.is/0vSzTr1",
+        githubUrl: "https://github.com/benn-reyn/strategyTesting"
+    },
+    {
+        id: 2,
         title: "Master's Research - Instrumental Principal Component Analysis in Micro-Capitalization Stock Returns",
         description: "A novel approach to excess return decomposition, in an underexplored area of financial econometrics.",
         image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80",
         tags: ["Python", "SQL", "Jupyter Notebook", "WRDS"],
-        demoUrl: "https://github.com/benn-reyn/IPCA-Microcaps/blob/main/EDA.ipynb",
+        demoUrl: "/A Remedy to Noise.pdf",
         githubUrl: "https://github.com/benn-reyn/IPCA-Microcaps"
     },
     {
-        id: 2,
-        title: "Hybrid Regime Prediction Model",
-        description: "A hyperparameter-tuned machine learning model used to classify market regime, leveraging both stochastic and fractal theory for improved prediction. Uses both XGBoost and RF.",
+        id: 3,
+        title: "Market Regime Modeling with non-linear Gaussian Processes",
+        description: "Applying time series techniques such as Markov Switching Models and non-linear Gaussian Processes (Kole & Van Dijk, 2023) to model and predict market regimes",
+        image: "/economicpic.jpg",
+        tags: ["Python", "Data Analysis", "Economics", "Visualization", "Time Series"],
+        demoUrl: "#",
+        githubUrl: "https://github.com/benn-reyn/Bitcoin-Gold-VIX-Econometric-Analysis/blob/main/bitcoin_x_gold.ipynb"
+    },
+    {
+        id: 4,
+        title: "Market Statistical Property Classification Model",
+        description: "A hyperparameter-tuned machine learning model used to classify statistical properties of financial markets, leveraging both stochastic and fractal theory for improved inference. Uses both XGBoost and RF.",
         image: "/hybridPhoto.png",
         tags: ["Python", "Machine Learning", "Pandas", "Scikit-learn"],
         demoUrl: "https://benn-reyn.github.io/Hybrid_Regime_Prediction_Engine/",
         githubUrl: "https://github.com/benn-reyn/Hybrid_Regime_Prediction_Engine"
     },
     {
-        id: 3,
-        title: "Collection of Econometric Analyses with Interactive Visualizations",
-        description: "Will be made available in next deployment. Until then, some projectsare available on github. Many were written in R, and need to be refactored to python.",
-        image: "/economicpic.jpg",
-        tags: ["Python", "Data Analysis", "Economics", "Visualization", "Time Series"],
-        demoUrl: "#",
-        githubUrl: "https://github.com/benn-reyn"
-    },
-    {
-        id: 4,
-        title: "Backtesting Framework",
-        description: "A notebook for backtesting trading strategies using historical market data, with performance metrics and visualizations.",
-        image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80",
-        tags: ["Python", "Pandas", "NumPy", "Matplotlib"],
-        demoUrl: "https://github.com/benn-reyn/strategyTesting/blob/main/strategyTesting.ipynb",
-        githubUrl: "https://github.com/benn-reyn/strategyTesting"
-    },
-    {
         id: 5,
-        title: "FinBERT - Financial Sentiment Analysis",
-        description: "Will be made available in next deployment. Using FinBERT, a pre-trained language model for financial sentiment analysis, to analyze social media posts for market sentiment insights. Needs to be refactored from R & Rshiny.",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80",
+        title: "Revenue, Cost, and Risk Analysis partnering with BMW for Clemson University",
+        description: "A comprehensive analysis of revenue, cost, and risk factors regarding the implementation of artificial intelligence systems in BMW's manufacturing facilities.",
+        image: "/bmw.jpg",
         tags: ["Python", "NLP", "Machine Learning", "Financial Analysis"],
         demoUrl: "#",
         githubUrl: "https://github.com/benn-reyn"
     },
-    {
-        id: 6,
-        title: "NBA Stat-Correction Model",
-        description: "In progress... A machine learning model designed to identify and correct statistical anomalies in NBA player performance data, improving the accuracy of sports analytics. Refactoring from R to Python.",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80",
-        tags: ["Python", "Machine Learning", "Sports Analytics"],
-        demoUrl: "#",
-        githubUrl: "https://github.com/benn-reyn"
-    }
 ];
 
 export const ProjectsSection = () => {
@@ -66,9 +57,7 @@ export const ProjectsSection = () => {
                     My <span className="text-primary">Projects</span>
                 </h2>
                 <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                    Here are some of my recent projects that showcase my skills in fullstack development, 
-                    machine learning, and economic analysis. Each project represents a unique challenge 
-                    and learning opportunity.
+                    Here are some of my recent projects that showcase my skills and experience. Each project represents a unique challenge and learning opportunity.
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
