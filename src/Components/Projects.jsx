@@ -22,12 +22,12 @@ const projects = [
     },
     {
         id: 3,
-        title: "Market Regime Modeling with non-linear Gaussian Processes",
-        description: "Applying time series techniques such as Markov Switching Models and non-linear Gaussian Processes (Kole & Van Dijk, 2023) to model and predict market regimes",
-        image: "/economicpic.jpg",
+        title: "Market Regime and Risk Exposure Desk using Markov Switching Models and Transition State Logic",
+        description: "Using Markov Switching Models and findings from Kole & Van Dijk, 2023 to model market regimes and subsequent risk exposures.",
+        image: "/BearandBull.webp",
         tags: ["Python", "Data Analysis", "Economics", "Visualization", "Time Series"],
-        demoUrl: "#",
-        githubUrl: "https://github.com/benn-reyn/Bitcoin-Gold-VIX-Econometric-Analysis/blob/main/bitcoin_x_gold.ipynb"
+        demoUrl: "https://regimestatedesk.streamlit.app/",
+        githubUrl: "https://github.com/benn-reyn/Transition_State_Desk"
     },
     {
         id: 4,
